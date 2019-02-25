@@ -1,9 +1,13 @@
 # _*_ coding: utf-8 _*_
 # 提供Yes/No 类型的预报结果的检验
 
-
 import numpy as np
 
+def mis_rate_OF(Ob,Fo,value):
+    #输入观测Ob和预报Fo的预报数据（1维的numpy数组），以及判断事件是否发生的阈值value，
+    # 返回一个漏报率
+    hit,mis,fal,_ = hmfn(Ob,Fo,value)
+    return mis/(hit + mis + 0.0000001)
 def ts_OF(Ob,Fo,value):
     #输入观测Ob和预报Fo的预报数据（1维的numpy数组），以及判断事件是否发生的阈值value，
     # 返回一个ts评分值
